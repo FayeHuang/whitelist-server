@@ -5,9 +5,11 @@ export default (req, res) => {
   if (!appId || !userInput) res.status(400).end()
 
   const isValid = checkAccess(appId, origin)
-  if (!isValid) res.status(403).end()
-  res.status(200).json({
-    text: userInput,
-    response: 'OK !'
-  })
+  if (!isValid) 
+    res.status(403).end()
+  else
+    res.status(200).json({
+      text: userInput,
+      response: 'OK !'
+    })
 }
